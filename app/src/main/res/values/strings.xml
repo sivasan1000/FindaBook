@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FindaBook</string>
+    <string name="search">search</string>
+    <string name="type_key">Type keywords</string>
+    <string name="no_internet_connection">Check your internet connection</string>
+    <string name="no_books">Nothing to show. Try again!</string>
+    <string name="first_search">No books.</string>
+
+</resources>
