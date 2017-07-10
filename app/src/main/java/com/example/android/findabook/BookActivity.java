@@ -127,11 +127,43 @@ public class BookActivity extends AppCompatActivity implements LoaderManager.Loa
         // Hide loading indicator because the data has been loaded
         loadingIndicator.setVisibility(View.GONE);
 
+//        //
+//        // If there is a network connection, fetch data
+//        if (isConnected()) {
+//            // Get a reference to the LoaderManager, in order to interact with loaders.
+//            mAdapter.clear();
+//            loadingIndicator.setVisibility(View.VISIBLE);
+//            getLoaderManager().restartLoader(LOADER_ID, null, BookActivity.this);
+//        } else {
+//            // Otherwise, display error
+//            // First, hide loading indicator so error message will be visible
+//            loadingIndicator.setVisibility(View.GONE);
+//            // Update empty state with no connection error message
+//            mEmptyStateTextView.setText(R.string.no_internet_connection);
+//        }
+////
+
         // Set empty state text to display "nothing to show."
         mEmptyStateTextView.setText(R.string.no_books);
 
         // Clear the adapter of previous books data
         mAdapter.clear();
+
+//
+        if (isConnected()) {
+            // Get a reference to the LoaderManager, in order to interact with loaders.
+            mAdapter.clear();
+//            loadingIndicator.setVisibility(View.VISIBLE);
+//            getLoaderManager().restartLoader(LOADER_ID, null, BookActivity.this);
+
+        } else {
+            // Otherwise, display error
+            // First, hide loading indicator so error message will be visible
+            loadingIndicator.setVisibility(View.GONE);
+            // Update empty state with no connection error message
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+        }
+//
 
         // If there is a valid list of {@link GoogleBook}s, then add them to the adapter's
         // data set. This will trigger the ListView to update.

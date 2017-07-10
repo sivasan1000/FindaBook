@@ -173,32 +173,22 @@ public final class QueryUtils {
                 // Extract the value for the key called "title"
                 String title = volumeInfo.getString("title");
 
-
-
-//                // Extract the Array for the key called "authors"
-//
-//                JSONArray authorsArray = volumeInfo.getJSONArray("authors");
-//                String authors = "";
-//                for (int j = 0; j < authorsArray.length(); j++) {
-//                    if (j == 0) {
-//                        authors += authorsArray.getString(j);
-//                    } else {
-//                        authors += ", " + authorsArray.getString(j);
-//                    }
-//                }
-
-
-                String authors = new String("No Authors");
-
+                // Afiseaza mai multi autori
+                // Extract the Array for the key called "authors"
+                String authors = new String("");
                 if (!volumeInfo.isNull("authors")) {
                     JSONArray authorsArray = volumeInfo.getJSONArray("authors");
                     authors = new String(authors);
                     for (int j = 0; j < authorsArray.length(); j++) {
-                        authors = authorsArray.getString(j);
+                        if (j == 0) {
+                            authors += authorsArray.getString(j);
+                        } else {
+                            authors += ", " + authorsArray.getString(j);
+                        }
                     }
                 }
 
-
+//                  // Nu afiseaza cartile fara auto (Ex: Bible)
 //                // Extract the Array for the key called "authors"
 //                JSONArray authorsArray = volumeInfo.getJSONArray("authors");
 //                String authors = "";
@@ -210,7 +200,7 @@ public final class QueryUtils {
 //                    }
 //                }
 
-
+//                  // Nu afiseaza decat un autor
 //                String authors = new String("No Authors");
 //
 //                if (!volumeInfo.isNull("authors")) {
@@ -220,14 +210,6 @@ public final class QueryUtils {
 //                        authors = authorsArray.getString(j);
 //                    }
 //                }
-
-
-
-
-
-
-
-
 
                 // Extract “url” for book
                 String url = volumeInfo.getString("previewLink");
